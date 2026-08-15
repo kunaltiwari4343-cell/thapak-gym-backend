@@ -12,7 +12,7 @@ export function signToken(payload) {
 const router = express.Router();
 
 // Register Route
-router.post('/api/auth/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const { name, email, password, gymName, phone } = req.body;
     
@@ -52,7 +52,7 @@ router.post('/api/auth/register', async (req, res) => {
 });
 
 // Login Route
-router.post('/api/auth/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
