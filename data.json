@@ -1,0 +1,16 @@
+{
+  "owners": [
+    {
+      "id": 1,
+      "name": "kunal Purohit",
+      "email": "kunalpurohit7007@gmail.com",
+      "phone": "09340271892",
+      "gym_name": "FitZone Gym",
+      "password": "$2a$10$CJDF4YYoE2JcJVPUfKY/deyXhJCq5gtAcCihBFcbthB/cfGu6LeLO",
+      "created_at": "2026-08-13T10:09:24.482Z"
+    }
+  ],
+  "members": [],
+  "nextOwnerId": 2,
+  "nextMemberId": 1
+}
