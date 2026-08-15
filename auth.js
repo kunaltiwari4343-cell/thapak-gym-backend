@@ -1,5 +1,33 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { db } from './db.js';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'gymfit-pro-secret-key-2026';
+
+export function signToken(payload) {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '30d' });
+}
+
+const router = express.Router();
+
+router.post('/register', (req, res) => {
+  const { name, email, password, gymName, phone } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: 'Name, email aur password zaroori hai' });
+  }
+  if (password.length < 6) {
+    return res.status(400).json({ error: 'Password kam se kam 6 characters ka hona chahiye' });
+  }
+
+  const data = db.read();
+  const existing = data.owners.find((o) => o.email === email.toLowerCase());
+  if (existing) {
+    return res.status(400).json({ error: 'Ye email pehle se registered hai' });
+  }
+
+import express from 'express';
+import bcrypt from 'bcryptjs';
 import { db } from './db.js';
 
 
