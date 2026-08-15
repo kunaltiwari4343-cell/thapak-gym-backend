@@ -68,7 +68,7 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/me', authMiddleware, (req, res) => {
+router.get('/me', (req, res) => {
   const data = db.read();
   const row = data.owners.find((o) => o.id === req.ownerId);
   if (!row) return res.status(404).json({ error: 'Owner not found' });
