@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import authRoutes from './routes/auth.js';
-import memberRoutes from './routes/members.js';
+import authRoutes from './auth.js';
+// import memberRoutes from './routes/members.js';
 import { uploadsDir } from './db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/uploads', express.static(uploadsDir));
 
 app.use('/api/auth', authRoutes);
-app.use('/api/members', memberRoutes);
+// app.use('/api/members', memberRoutes);
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 
